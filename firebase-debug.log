@@ -1,0 +1,237 @@
+[debug] [2026-01-18T05:44:05.396Z] ----------------------------------------------------------------------
+[debug] [2026-01-18T05:44:05.398Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ksuar\mindtracker\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-01-18T05:44:05.399Z] CLI Version:   15.3.1
+[debug] [2026-01-18T05:44:05.399Z] Platform:      win32
+[debug] [2026-01-18T05:44:05.399Z] Node Version:  v24.12.0
+[debug] [2026-01-18T05:44:05.399Z] Time:          Sat Jan 17 2026 23:44:05 GMT-0600 (Central Standard Time)
+[debug] [2026-01-18T05:44:05.399Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\ksuar\mindtracker
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-01-18T05:44:16.818Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-18T05:44:16.818Z] > authorizing via signed-in user (ksuarez00795@gmail.com)
+[debug] [2026-01-18T05:44:16.821Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:16.822Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:16.823Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mind-tracker-c2eb9 [none]
+[debug] [2026-01-18T05:44:17.637Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mind-tracker-c2eb9 200
+[debug] [2026-01-18T05:44:17.637Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mind-tracker-c2eb9 {"projectId":"mind-tracker-c2eb9","projectNumber":"681852175282","displayName":"Mind Tracker","name":"projects/mind-tracker-c2eb9","resources":{"hostingSite":"mind-tracker-c2eb9"},"state":"ACTIVE","etag":"1_21952dff-68e3-4d47-8d2d-590c173f2f70"}
+[info] i  Using project mind-tracker-c2eb9 (Mind Tracker) . 
+[info] 
+=== Dataconnect Setup
+[info] i  dataconnect: ensuring required API firebasedataconnect.googleapis.com is enabled... 
+[info] i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled... 
+[debug] [2026-01-18T05:44:17.654Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:17.654Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:17.654Z] >>> [apiv2][query] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/-/services [none]
+[debug] [2026-01-18T05:44:18.462Z] <<< [apiv2][status] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/-/services 200
+[debug] [2026-01-18T05:44:18.462Z] <<< [apiv2][body] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/-/services {"services":[{"name":"projects/mind-tracker-c2eb9/locations/us-east4/services/mindtracker","createTime":"2026-01-18T05:39:00.876519812Z","updateTime":"2026-01-18T05:40:30.848847445Z","uid":"9917c455-b38e-4430-a7bf-5a34bcd5512e","reconciling":false,"etag":"a7YzjtktSUUeMJ4-MUupFtMtCrOpQxHpnMUBpp8BxCA"}]}
+[debug] [2026-01-18T05:44:27.814Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:27.815Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:27.815Z] >>> [apiv2][query] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/us-east4/services/mindtracker/schemas pageSize=100&pageToken=&fields=schemas.name%2Cschemas.datasources%2Cschemas.source
+[debug] [2026-01-18T05:44:28.596Z] <<< [apiv2][status] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/us-east4/services/mindtracker/schemas 200
+[debug] [2026-01-18T05:44:28.596Z] <<< [apiv2][body] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/us-east4/services/mindtracker/schemas {"schemas":[{"name":"projects/mind-tracker-c2eb9/locations/us-east4/services/mindtracker/schemas/main","source":{"files":[{"path":"schema.gql","content":"type User @table {\n  displayName: String!\n  createdAt: Timestamp!\n  email: String!\n  photoUrl: String\n  bio: String\n  mentalHealthCondition: String\n}\n\ntype MoodEntry @table {\n  user: User!\n  moodRating: Int!\n  entryDate: Date!\n  createdAt: Timestamp!\n  notes: String\n  feelings: [String]\n}\n\ntype ActivityLog @table {\n  user: User!\n  activityType: String!\n  logDate: Date!\n  createdAt: Timestamp!\n  durationMinutes: Int\n  notes: String\n  impactRating: Int\n}\n\ntype SupportGroup @table {\n  name: String!\n  description: String!\n  createdAt: Timestamp!\n  topicTags: [String]\n  isPublic: Boolean\n}\n\ntype GroupPost @table {\n  user: User!\n  supportGroup: SupportGroup!\n  content: String!\n  createdAt: Timestamp!\n  editedAt: Timestamp\n}\n\ntype Resource @table {\n  title: String!\n  url: String!\n  resourceType: String!\n  createdAt: Timestamp!\n  description: String\n  topicTags: [String]\n}"}]},"datasources":[{"postgresql":{"ephemeral":true}}]}]}
+[debug] [2026-01-18T05:44:28.596Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:28.596Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:28.596Z] >>> [apiv2][query] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/us-east4/services/mindtracker/connectors pageSize=100&pageToken=&fields=connectors.name%2Cconnectors.source.files
+[debug] [2026-01-18T05:44:28.821Z] <<< [apiv2][status] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/us-east4/services/mindtracker/connectors 200
+[debug] [2026-01-18T05:44:28.821Z] <<< [apiv2][body] GET https://firebasedataconnect.googleapis.com/v1/projects/mind-tracker-c2eb9/locations/us-east4/services/mindtracker/connectors {}
+[debug] [2026-01-18T05:44:28.821Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:28.821Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:28.822Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/mind-tracker-c2eb9/billingInfo [none]
+[debug] [2026-01-18T05:44:29.105Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/mind-tracker-c2eb9/billingInfo 200
+[debug] [2026-01-18T05:44:29.105Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/mind-tracker-c2eb9/billingInfo {"name":"projects/mind-tracker-c2eb9/billingInfo","projectId":"mind-tracker-c2eb9","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-18T05:44:29.106Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:29.106Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:29.106Z] >>> [apiv2][query] GET https://monitoring.googleapis.com/v3/projects/mind-tracker-c2eb9/timeSeries/ filter=metric.type%3D%22serviceruntime.googleapis.com%2Fquota%2Fallocation%2Fusage%22+AND+metric.label.quota_metric+%3D+%22sqladmin.googleapis.com%2Ffdc_lifetime_free_trial_per_project%22&interval.endTime=2026-01-18T05%3A44%3A29.106Z&interval.startTime=2026-01-11T05%3A44%3A29.106Z
+[debug] [2026-01-18T05:44:30.251Z] <<< [apiv2][status] GET https://monitoring.googleapis.com/v3/projects/mind-tracker-c2eb9/timeSeries/ 200
+[debug] [2026-01-18T05:44:30.251Z] <<< [apiv2][body] GET https://monitoring.googleapis.com/v3/projects/mind-tracker-c2eb9/timeSeries/ {"unit":"1"}
+[info] +  dataconnect: Detected existing apps . (web) 
+[info] +  Wrote dataconnect\dataconnect.yaml 
+[info] +  Wrote dataconnect\schema\schema.gql 
+[info] +  Wrote dataconnect\example\connector.yaml 
+[info] +  Wrote dataconnect\example\connector.yaml 
+[info] i  dataconnect: Installing the generated SDKs ... 
+[info] i  dataconnect: downloading dataconnect-emulator-3.0.2.exe... {"metadata":{"emulator":{"name":"dataconnect"},"message":"downloading dataconnect-emulator-3.0.2.exe..."}}
+[debug] [2026-01-18T05:44:30.311Z] >>> [apiv2][query] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.0.2 
+[debug] [2026-01-18T05:44:30.656Z] <<< [apiv2][status] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.0.2 200
+[debug] [2026-01-18T05:44:30.656Z] <<< [apiv2][body] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.0.2 [stream]
+[debug] [2026-01-18T05:44:41.695Z] defaultcredentials: writing to file C:\Users\ksuar\AppData\Roaming\firebase\ksuarez00795_gmail_com_application_default_credentials.json
+[error] !!  dataconnect: Failed to generate Data Connect SDKs
+Command failed with exit code 1 
+[info] +  dataconnect: Installed generated SDKs for . (web) 
+[info] i  Visit https://firebase.google.com/docs/data-connect/web-sdk#react for more information on how to set up React Generated SDKs for Firebase Data Connect 
+[info] 
+=== Firestore Setup
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-01-18T05:44:47.483Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:47.483Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:47.484Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases [none]
+[debug] [2026-01-18T05:44:48.247Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases 200
+[debug] [2026-01-18T05:44:48.247Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases {"databases":[{"name":"projects/mind-tracker-c2eb9/databases/(default)","uid":"3d63b1c5-774b-4fa1-9fae-d9f55c62dc72","createTime":"2026-01-18T05:30:47.212853Z","updateTime":"2026-01-18T05:30:47.212853Z","locationId":"us-central1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-01-18T05:30:47.212853Z","appEngineIntegrationMode":"DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IPyyg/awlJIDMJmepPSvlJID"}]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2026-01-18T05:44:48.249Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:48.249Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:48.249Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/mind-tracker-c2eb9/releases pageSize=10&pageToken=
+[debug] [2026-01-18T05:44:48.764Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/mind-tracker-c2eb9/releases 200
+[debug] [2026-01-18T05:44:48.764Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/mind-tracker-c2eb9/releases {"releases":[{"name":"projects/mind-tracker-c2eb9/releases/cloud.firestore","rulesetName":"projects/mind-tracker-c2eb9/rulesets/c0dba262-14e3-4a88-bea0-8f07aea7fa52","createTime":"2026-01-18T05:30:49.061526Z","updateTime":"2026-01-18T05:42:22.438457Z"}]}
+[debug] [2026-01-18T05:44:48.764Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:48.764Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:48.764Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/mind-tracker-c2eb9/rulesets/c0dba262-14e3-4a88-bea0-8f07aea7fa52 [none]
+[debug] [2026-01-18T05:44:48.903Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/mind-tracker-c2eb9/rulesets/c0dba262-14e3-4a88-bea0-8f07aea7fa52 200
+[debug] [2026-01-18T05:44:48.903Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/mind-tracker-c2eb9/rulesets/c0dba262-14e3-4a88-bea0-8f07aea7fa52 [omitted]
+[info] i  Downloaded the existing Firestore Security Rules from the Firebase console 
+[info] i  firestore.rules is unchanged 
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2026-01-18T05:44:48.906Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:48.906Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:48.906Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:48.906Z] Checked if tokens are valid: true, expires at: 1768716012261
+[debug] [2026-01-18T05:44:48.906Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2026-01-18T05:44:48.906Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2026-01-18T05:44:49.065Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2026-01-18T05:44:49.065Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2026-01-18T05:44:49.373Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2026-01-18T05:44:49.374Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/mind-tracker-c2eb9/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/mind-tracker-c2eb9/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] i  Downloaded the existing Firestore indexes from the Firebase console 
+[info] +  Wrote firestore.rules 
+[info] +  Wrote firestore.indexes.json 
+[info] 
+=== Genkit Setup
+[debug] [2026-01-18T05:45:50.105Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-18T05:45:50.105Z] > authorizing via signed-in user (ksuarez00795@gmail.com)
+[debug] [2026-01-18T05:45:50.105Z] [iam] checking project mind-tracker-c2eb9 for permissions ["firebase.projects.get"]
+[debug] [2026-01-18T05:45:50.106Z] Checked if tokens are valid: false, expires at: 1768716012261
+[debug] [2026-01-18T05:45:50.106Z] Checked if tokens are valid: false, expires at: 1768716012261
+[debug] [2026-01-18T05:45:50.106Z] > refreshing access token with scopes: []
+[debug] [2026-01-18T05:45:50.109Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-18T05:45:50.109Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-18T05:45:50.521Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-18T05:45:50.522Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-18T05:45:50.533Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions [none]
+[debug] [2026-01-18T05:45:50.533Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions x-goog-quota-user=projects/mind-tracker-c2eb9
+[debug] [2026-01-18T05:45:50.533Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-01-18T05:45:51.126Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions 200
+[debug] [2026-01-18T05:45:51.126Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-01-18T05:45:51.127Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:45:51.127Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:45:51.128Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:45:51.128Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:45:51.128Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-01-18T05:45:51.128Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/mind-tracker-c2eb9
+[debug] [2026-01-18T05:45:51.129Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/runtimeconfig.googleapis.com [none]
+[debug] [2026-01-18T05:45:51.129Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/mind-tracker-c2eb9
+[debug] [2026-01-18T05:45:51.537Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/runtimeconfig.googleapis.com 200
+[debug] [2026-01-18T05:45:51.537Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2026-01-18T05:45:51.646Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/cloudfunctions.googleapis.com 200
+[debug] [2026-01-18T05:45:51.647Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-01-18T05:45:51.647Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:45:51.647Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:45:51.647Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2026-01-18T05:45:51.647Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/mind-tracker-c2eb9
+[debug] [2026-01-18T05:45:52.053Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2026-01-18T05:45:52.054Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/cloudfunctions.googleapis.com:enable [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] +  Wrote functions/package.json 
+[info] +  Wrote functions/.eslintrc.js 
+[info] +  Wrote functions/tsconfig.dev.json 
+[info] +  Wrote functions/tsconfig.json 
+[info] +  Wrote functions/src/index.ts 
+[info] +  Wrote functions/.gitignore 
+[info] 
+[info] i  genkit: Installing Genkit CLI version 1.27.0
+ 
+[info] i  aiplatform: ensuring required API aiplatform.googleapis.com is enabled... 
+[debug] [2026-01-18T05:49:23.194Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:49:23.198Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:49:23.204Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/aiplatform.googleapis.com [none]
+[debug] [2026-01-18T05:49:23.204Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/aiplatform.googleapis.com x-goog-quota-user=projects/mind-tracker-c2eb9
+[debug] [2026-01-18T05:49:24.174Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/aiplatform.googleapis.com 200
+[debug] [2026-01-18T05:49:24.175Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/aiplatform.googleapis.com [omitted]
+[warn] !  aiplatform: missing required API aiplatform.googleapis.com. Enabling now... 
+[debug] [2026-01-18T05:49:24.184Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:49:24.185Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:49:24.185Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/aiplatform.googleapis.com:enable [none]
+[debug] [2026-01-18T05:49:24.185Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/aiplatform.googleapis.com:enable x-goog-quota-user=projects/mind-tracker-c2eb9
+[debug] [2026-01-18T05:49:24.586Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/aiplatform.googleapis.com:enable 200
+[debug] [2026-01-18T05:49:24.586Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/mind-tracker-c2eb9/services/aiplatform.googleapis.com:enable [omitted]
+[info] i  genkit: Installing NPM packages for genkit 
+[info] +  genkit: Successfully installed NPM packages 
+[info] i  genkit: Updating tsconfig.json 
+[info] +  genkit: Successfully updated tsconfig.json 
+[info] i  genkit: Updating package.json 
+[info] +  genkit: Successfully updated package.json 
+[info] Telemetry data can be used to monitor and gain insights into your AI features. There may be a cost associated with using this feature. See https://firebase.google.com/docs/genkit/observability/telemetry-collection.
+[info] i  genkit: Generating sample file 
+[info] +  genkit: Successfully generated sample file (src/genkit-sample.ts) 
+[info] 
+[info] 
+Login to Google Cloud using:
+[info]     gcloud auth application-default login --project mind-tracker-c2eb9
+
+[info] Then start the Genkit developer experience by running:
+[info]     cd functions && npm run genkit:start
+[info] 
+=== Functions Setup
+[debug] [2026-01-18T05:51:32.116Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-18T05:51:32.119Z] > authorizing via signed-in user (ksuarez00795@gmail.com)
+[debug] [2026-01-18T05:51:32.120Z] [iam] checking project mind-tracker-c2eb9 for permissions ["firebase.projects.get"]
+[debug] [2026-01-18T05:51:32.125Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:51:32.125Z] Checked if tokens are valid: true, expires at: 1768718749522
+[debug] [2026-01-18T05:51:32.128Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions [none]
+[debug] [2026-01-18T05:51:32.128Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions x-goog-quota-user=projects/mind-tracker-c2eb9
+[debug] [2026-01-18T05:51:32.128Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-01-18T05:51:32.506Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions 200
+[debug] [2026-01-18T05:51:32.507Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mind-tracker-c2eb9:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+Detected existing codebase(s): default
+
+[info] 
+Overwriting codebase default...
+
+[info] +  Wrote functions/requirements.txt 
+[info] +  Wrote functions/.gitignore 
+[info] +  Wrote functions/main.py 
+[debug] [2026-01-18T05:51:55.312Z] Running command with virtualenv: command="C:\Users\ksuar\mindtracker\functions\venv\Scripts\activate.bat", args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2026-01-18T05:51:55.805Z] Error: spawn "C:\Users\ksuar\mindtracker\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\ksuar\mindtracker\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\ksuar\mindtracker\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\ksuar\mindtracker\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+[error] 
+[error] Error: An unexpected error has occurred.
