@@ -10,8 +10,8 @@
     "firebase": "firebase"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^8.6.0",
-    "firebase": "^12.7.0",
+    "@stripe/stripe-js": "^8.6.1",
+    "firebase": "^12.8.0",
     "lucide-react": "^0.344.0",
     "react": "^18.2.0",
     "react-calendar": "^4.8.0",
