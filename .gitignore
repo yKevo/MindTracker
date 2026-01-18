@@ -1,8 +1,8 @@
+.env*
 node_modules/
 build/
-.env
-.env.local
 .DS_Store
+.env.local
 .idea/
 .vscode/
 npm-debug.log*
@@ -10,4 +10,4 @@ yarn-debug.log*
 yarn-error.log*
 dist/
 .cache/
-coverage/node_modules
+coverage/
