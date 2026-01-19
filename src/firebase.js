@@ -8,10 +8,10 @@ const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "AIzaSyC7okzeIMGZmRJb_CxO-_xt8L5k0P5EITA",
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || "mind-tracker-c2eb9.firebaseapp.com",
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID || "mind-tracker-c2eb9",
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET || "mind-tracker-c2eb9.appspot.com",
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET || "mind-tracker-c2eb9.firebasestorage.app",
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID || "681852175282",
-  appId: process.env.REACT_APP_FIREBASE_APP_ID || "1:681852175282:web:f25e66e36e386c4b0c5aab",
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID || "G-9PJSTQ8TKD"
+  appId: process.env.REACT_APP_FIREBASE_APP_ID || "1:681852175282:web:1bf5e34f28ddbc0c0c5aab",
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID || "G-MBHZ0VPL34"
 };
 
 // Initialize Firebase app (idempotent if hot-reloading)
